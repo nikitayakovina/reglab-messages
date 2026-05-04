@@ -1,0 +1,74 @@
+<aside class="sidebar">
+  <div class="sid-user">
+    <div class="sid-user__info">
+      <div class="sid-user__name">{{ (currentUser$ | async)?.username }}</div>
+      <div class="sid-user__tag">It's you</div>
+    </div>
+    <div class="sid-user__actions">
+      <button class="icon-btn" title="Profile" (click)="goToProfile()">⚙</button>
+      <button class="icon-btn" title="Log out" (click)="logout()">⇥</button>
+    </div>
+  </div>
+
+  <div class="sid-body">
+    <p class="sid-section">Channels</p>
+    @for (ch of (channels$ | async); track ch.id) {
+      <button
+        class="channel-item"
+        [class.channel-item--active]="(activeChannel$ | async)?.id === ch.id"
+        (click)="selectChannel(ch)"
+      >
+        #{{ ch.name }}
+      </button>
+    }
+    <button class="add-btn" (click)="showChannelModal.set(true)">+ Add channel</button>
+    <div class="sid-divider"></div>
+    <p class="sid-section">Users</p>
+    @for (u of (otherUsers$ | async); track u.id) {
+      <div class="user-item">
+        <span class="user-item__dot" [class.user-item__dot--on]="u.is_online"></span>
+        {{ u.username }}
+      </div>
+    }
+    <button class="add-btn" (click)="showUserModal.set(true)">+ Add user</button>
+
+  </div>
+</aside>
+
+@if (showChannelModal()) {
+  <div class="modal-bg" (click)="showChannelModal.set(false)">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <h3 class="modal__title">New Channel</h3>
+      <input
+        class="modal__input"
+        type="text"
+        placeholder="channel-name"
+        [(ngModel)]="newChannelName"
+        (keydown.enter)="submitChannel()"
+      />
+      <div class="modal__btns">
+        <button class="modal__btn modal__btn--primary" (click)="submitChannel()">Create</button>
+        <button class="modal__btn modal__btn--ghost" (click)="showChannelModal.set(false)">Cancel</button>
+      </div>
+    </div>
+  </div>
+}
+
+@if (showUserModal()) {
+  <div class="modal-bg" (click)="showUserModal.set(false)">
+    <div class="modal" (click)="$event.stopPropagation()">
+      <h3 class="modal__title">Add User</h3>
+      <input
+        class="modal__input"
+        type="text"
+        placeholder="username"
+        [(ngModel)]="newUsername"
+        (keydown.enter)="submitUser()"
+      />
+      <div class="modal__btns">
+        <button class="modal__btn modal__btn--primary" (click)="submitUser()">Add</button>
+        <button class="modal__btn modal__btn--ghost" (click)="showUserModal.set(false)">Cancel</button>
+      </div>
+    </div>
+  </div>
+}

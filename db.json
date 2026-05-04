@@ -1,0 +1,220 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "username": "anton",
+      "password": "anton123",
+      "is_online": true
+    },
+    {
+      "id": "u2",
+      "username": "maria",
+      "password": "maria123",
+      "is_online": true
+    },
+    {
+      "id": "u3",
+      "username": "max",
+      "password": "max123",
+      "is_online": true
+    },
+    {
+      "id": "u4",
+      "username": "andrew",
+      "password": "andrew123",
+      "is_online": false
+    },
+    {
+      "username": "maria",
+      "password": "pass123",
+      "is_online": false,
+      "id": "frZhMi1"
+    }
+  ],
+  "channels": [
+    {
+      "id": "c1",
+      "name": "general"
+    },
+    {
+      "id": "c2",
+      "name": "summer"
+    },
+    {
+      "id": "c3",
+      "name": "party"
+    },
+    {
+      "name": "test",
+      "id": "S5VYE0h"
+    },
+    {
+      "name": "123",
+      "id": "eWrg89O"
+    },
+    {
+      "name": "222",
+      "id": "R7pKAwZ"
+    },
+    {
+      "name": "333",
+      "id": "6-cGZY6"
+    },
+    {
+      "name": "444",
+      "id": "5Chu6j2"
+    }
+  ],
+  "user_channels": [
+    {
+      "user_id": "u1",
+      "channel_id": "c1"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "c2"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "c3"
+    },
+    {
+      "user_id": "u2",
+      "channel_id": "c1"
+    },
+    {
+      "user_id": "u3",
+      "channel_id": "c1"
+    },
+    {
+      "user_id": "u4",
+      "channel_id": "c2"
+    },
+    {
+      "id": "uc7",
+      "user_id": "u3",
+      "channel_id": "c1"
+    },
+    {
+      "id": "50022b66-50cb-4218-9cbb-242bc2733104",
+      "user_id": "u3",
+      "channel_id": "c1"
+    },
+    {
+      "id": "4f9bb5ed-1611-451a-afed-08c63f536f7e",
+      "user_id": "u3",
+      "channel_id": "c1"
+    },
+    {
+      "id": "59c9db61-a6ee-4927-9b53-06e637017513",
+      "user_id": "u1",
+      "channel_id": "c1"
+    },
+    {
+      "id": "116744ef-12c2-46d7-b535-d6c04f52d377",
+      "user_id": "u4",
+      "channel_id": "c1"
+    },
+    {
+      "id": "62c01f3b-399d-4ff3-8196-0dda6a141625",
+      "user_id": "u3",
+      "channel_id": "c2"
+    },
+    {
+      "id": "76bf4ce5-4bf9-4f4b-8707-acffdd54cad0",
+      "user_id": "u2",
+      "channel_id": "c3"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "S5VYE0h",
+      "id": "7vdZ2cQ"
+    },
+    {
+      "id": "5cce8853-6726-4b0e-9562-5277a656b1a7",
+      "user_id": "u4",
+      "channel_id": "S5VYE0h"
+    },
+    {
+      "id": "fe7042e5-76bb-40dc-b8bd-7c4452c82400",
+      "user_id": "u1",
+      "channel_id": "c1"
+    },
+    {
+      "id": "665540b1-ee44-48db-8a32-60ee66c08d99",
+      "user_id": "u2",
+      "channel_id": "c2"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "eWrg89O",
+      "id": "LSVe7le"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "R7pKAwZ",
+      "id": "sAud8al"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "6-cGZY6",
+      "id": "vuF8Umq"
+    },
+    {
+      "user_id": "u1",
+      "channel_id": "5Chu6j2",
+      "id": "NZnEkO7"
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "from_user": "u2",
+      "channel_id": "c1",
+      "content": "hey\nhow are you?",
+      "ts": 1714550000000
+    },
+    {
+      "id": "m2",
+      "from_user": "u3",
+      "channel_id": "c1",
+      "content": "hi, im work :(",
+      "ts": 1714550060000
+    },
+    {
+      "id": "m3",
+      "from_user": "u2",
+      "channel_id": "c2",
+      "content": "anyone up for a summer trip?",
+      "ts": 1714546400000
+    },
+    {
+      "id": "m4",
+      "from_user": "u4",
+      "channel_id": "c3",
+      "content": "party this weekend!",
+      "ts": 1714542800000
+    },
+    {
+      "from_user": "u1",
+      "channel_id": "c2",
+      "content": "123",
+      "ts": 1777629466142,
+      "id": "6Zkxcmr"
+    },
+    {
+      "from_user": "u1",
+      "channel_id": "S5VYE0h",
+      "content": "qwe",
+      "ts": 1777800425781,
+      "id": "fcat4Zg"
+    },
+    {
+      "from_user": "u1",
+      "channel_id": "c2",
+      "content": "3333",
+      "ts": 1777807752775,
+      "id": "ikulYz9"
+    }
+  ]
+}

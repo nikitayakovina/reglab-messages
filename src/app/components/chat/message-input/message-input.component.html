@@ -1,0 +1,16 @@
+<div class="input-row">
+  <input
+    class="input-row__field"
+    type="text"
+    placeholder="Type a message"
+    [(ngModel)]="content"
+    (keydown)="onKeydown($event)"
+    aria-label="Message input"
+  />
+  <button
+    class="input-row__send"
+    (click)="send()"
+    [disabled]="!content.trim()"
+    aria-label="Send message"
+  >→</button>
+</div>

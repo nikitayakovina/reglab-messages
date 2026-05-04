@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --yellow: #F5C518;
+  --yellow-dark: #d4a800;
+  --bg: #f9f9f7;
+  --surface: #ffffff;
+  --border: #e8e6e0;
+  --border-strong: #1a1a1a;
+  --text: #1a1a1a;
+  --text-muted: #888;
+  --online: #22c55e;
+  --offline: #ef4444;
+  --danger: #a32d2d;
+  --danger-bg: #feecec;
+  --danger-border: #f09595;
+  --info: #185FA5;
+  --sidebar-w: 280px;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.u-mono { font-family: var(--font-mono); }
+.u-muted { color: var(--text-muted); }
+.u-uppercase { text-transform: uppercase; letter-spacing: 1px; }
+
+@media (max-width: 1280px) {
+  :root { --sidebar-w: 240px; }
+}
+
+@media (max-width: 1024px) {
+  :root { --sidebar-w: 200px; }
+}
