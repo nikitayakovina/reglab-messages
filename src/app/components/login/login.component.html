@@ -1,0 +1,56 @@
+<div class="auth-wrap">
+  <div class="auth-box">
+    @if ((error$ | async) && (error$ | async) !== '') {
+      <div class="auth-error" role="alert">
+        {{ error$ | async }}
+      </div>
+    }
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field" [class.field--error]="usernameCtrl.invalid && usernameCtrl.touched">
+        <label class="field__label" for="username">Login</label>
+        <input
+          id="username"
+          type="text"
+          class="field__input"
+          formControlName="username"
+          placeholder="your_username"
+          autocomplete="username"
+        />
+        @if (usernameCtrl.invalid && usernameCtrl.touched) {
+          <span class="field__error">{{ getUsernameError() }}</span>
+        }
+      </div>
+
+      <div class="field" [class.field--error]="passwordCtrl.invalid && passwordCtrl.touched">
+        <label class="field__label" for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          class="field__input"
+          formControlName="password"
+          placeholder="••••••••"
+          autocomplete="current-password"
+        />
+        @if (passwordCtrl.invalid && passwordCtrl.touched) {
+          <span class="field__error">{{ getPasswordError() }}</span>
+        }
+      </div>
+
+      <button
+        type="submit"
+        class="auth-btn"
+        [disabled]="(loading$ | async)"
+      >
+        @if (loading$ | async) {
+          Signing in
+        } @else {
+          SignIn
+        }
+      </button>
+    </form>
+
+    <p class="auth-hint">
+      Demo: <strong>anton / anton123</strong>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "$schema": "./node_modules/json-server/schema.json",
+  "users": [
+    { "id": "u1", "username": "anton",  "password": "anton123",  "is_online": true  },
+    { "id": "u2", "username": "maria",  "password": "maria123",  "is_online": true  },
+    { "id": "u3", "username": "max",    "password": "max123",    "is_online": true  },
+    { "id": "u4", "username": "andrew", "password": "andrew123", "is_online": false }
+  ],
+  "channels": [
+    { "id": "c1", "name": "general" },
+    { "id": "c2", "name": "summer" },
+    { "id": "c3", "name": "party" }
+  ],
+  "user_channels": [
+    { "user_id": "u1", "channel_id": "c1" },
+    { "user_id": "u1", "channel_id": "c2" },
+    { "user_id": "u1", "channel_id": "c3" },
+    { "user_id": "u2", "channel_id": "c1" },
+    { "user_id": "u3", "channel_id": "c1" },
+    { "user_id": "u4", "channel_id": "c2" }
+  ],
+  "messages": [
+    { "id": "m1", "from_user": "u2", "channel_id": "c1", "content": "hey\nhow are you?", "ts": 1714550000000 },
+    { "id": "m2", "from_user": "u3", "channel_id": "c1", "content": "hi, im work :(", "ts": 1714550060000 },
+    { "id": "m3", "from_user": "u2", "channel_id": "c2", "content": "anyone up for a summer trip?", "ts": 1714546400000 },
+    { "id": "m4", "from_user": "u4", "channel_id": "c3", "content": "party this weekend!", "ts": 1714542800000 }
+  ]
+}

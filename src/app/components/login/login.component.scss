@@ -1,0 +1,129 @@
+.auth-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: var(--bg);
+  padding: 1rem;
+}
+
+.auth-box {
+  background: var(--surface);
+  border: 2px solid var(--border-strong);
+  padding: 2.5rem;
+  width: min(420px, 100%);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -7px;
+    right: -7px;
+    width: 100%;
+    height: 100%;
+    background: var(--yellow);
+    border: 2px solid var(--border-strong);
+    z-index: -1;
+  }
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+
+  &__icon { font-size: 1.4rem; }
+
+  &__text {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+}
+
+.auth-sub {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 1.75rem;
+}
+
+.auth-error {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  color: var(--danger);
+  padding: 0.6rem 0.75rem;
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  border-radius: 2px;
+}
+
+.field {
+  margin-bottom: 1.25rem;
+
+  &__label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 0.35rem;
+    font-family: var(--font-mono);
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border);
+    background: var(--bg);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s;
+
+    &:focus { border-color: var(--border-strong); }
+  }
+
+  &--error &__input { border-color: var(--offline); }
+
+  &__error {
+    display: block;
+    font-size: 0.72rem;
+    color: var(--offline);
+    margin-top: 0.3rem;
+  }
+}
+
+.auth-btn {
+  display: block;
+  width: 100%;
+  padding: 0.85rem;
+  background: var(--yellow);
+  border: 2px solid var(--border-strong);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: background 0.15s;
+  margin-top: 0.5rem;
+
+  &:hover:not(:disabled) { background: var(--yellow-dark); }
+  &:disabled { opacity: 0.6; cursor: not-allowed; }
+}
+
+.auth-hint {
+  margin-top: 1.5rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.6;
+
+  strong { color: var(--text); }
+}
