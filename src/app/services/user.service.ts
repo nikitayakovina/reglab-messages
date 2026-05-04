@@ -13,7 +13,8 @@ import {IUserChannel} from '../models/channel';
 export class UserService {
   public httpClientService = inject(HttpClient);
 
-  constructor() {}
+  constructor() {
+  }
 
   getUsers(): Observable<IUser[]> {
     return this.httpClientService
@@ -25,16 +26,16 @@ export class UserService {
 
   getUserByIds(userIds: string[]): Observable<IUser[]> {
     return this.httpClientService
-      .get<IUser[]>(`${environment.apiUrl}/users`, { params: { id: userIds } })
+      .get<IUser[]>(`${environment.apiUrl}/users`, {params: {id: userIds}})
       .pipe(
         delay(API_DELAY),
       );
   }
 
-  getUserChannels(channelId: string): Observable<IUserChannel[]>{
+  getUserChannels(channelId: string): Observable<IUserChannel[]> {
     return this.httpClientService
       .get<IUserChannel[]>(`${environment.apiUrl}/user_channels`, {
-        params: { channel_id: channelId }
+        params: {channel_id: channelId}
       })
       .pipe(
         delay(API_DELAY),
@@ -53,7 +54,7 @@ export class UserService {
       switchMap(userChannel => {
         return this.httpClientService
           .get<IUser[]>(`${environment.apiUrl}/users`, {
-            params: { id: userChannel.user_id }
+            params: {id: userChannel.user_id}
           }).pipe(map(user => user[0] as IUser))
       })
     );
@@ -62,7 +63,7 @@ export class UserService {
   login(username: string, password: string): Observable<IUser> {
     return this.httpClientService
       .get<IUser[]>(`${environment.apiUrl}/users`, {
-        params: { username, password }
+        params: {username, password}
       })
       .pipe(
         delay(API_DELAY),
@@ -71,7 +72,7 @@ export class UserService {
             throw new Error('Invalid username or password');
           }
 
-          const { password, ...user } = users[0];
+          const {password, ...user} = users[0];
           return user;
         })
       );

@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AsyncPipe, UpperCasePipe } from '@angular/common';
-import { AuthActions } from '../../store/actions';
-import { selectCurrentUser } from '../../store/selectors';
+import {Component, inject} from '@angular/core';
+import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import {AsyncPipe, UpperCasePipe} from '@angular/common';
+import {AuthActions} from '../../store/actions';
+import {selectCurrentUser} from '../../store/selectors';
 
 @Component({
   selector: 'app-user-profile',
@@ -13,10 +13,9 @@ import { selectCurrentUser } from '../../store/selectors';
   styleUrls: ['./user-profile.component.scss'],
 })
 export class UserProfileComponent {
-  private store  = inject(Store);
-  private router = inject(Router);
-
+  private store = inject(Store);
   currentUser$ = this.store.select(selectCurrentUser);
+  private router = inject(Router);
 
   goBack(): void {
     this.router.navigate(['/']);

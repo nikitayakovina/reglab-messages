@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-import { provideMockStore, MockStore } from '@ngrx/store/testing';
-import { LoginComponent } from './login.component';
-import { AuthActions } from '../../store/actions';
-import { selectAuthError, selectAuthLoading } from '../../store/selectors';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MockStore, provideMockStore} from '@ngrx/store/testing';
+import {LoginComponent} from './login.component';
+import {AuthActions} from '../../store/actions';
+import {selectAuthError, selectAuthLoading} from '../../store/selectors';
 
 describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
@@ -15,7 +15,7 @@ describe('LoginComponent', () => {
       imports: [LoginComponent, ReactiveFormsModule],
       providers: [
         provideMockStore({
-          initialState: { auth: { user: null, loading: false, error: null } },
+          initialState: {auth: {user: null, loading: false, error: null}},
         }),
       ],
     }).compileComponents();
@@ -54,10 +54,10 @@ describe('LoginComponent', () => {
 
   it('login action with valid data', () => {
     const dispatchSpy = jest.spyOn(store, 'dispatch');
-    component.form.setValue({ username: 'anton', password: 'anton123' });
+    component.form.setValue({username: 'anton', password: 'anton123'});
     component.submit();
     expect(dispatchSpy).toHaveBeenCalledWith(
-      AuthActions.login({ username: 'anton', password: 'anton123' }),
+      AuthActions.login({username: 'anton', password: 'anton123'}),
     );
   });
 
@@ -67,7 +67,7 @@ describe('LoginComponent', () => {
     component.submit();
 
     expect(dispatchSpy).not.toHaveBeenCalledWith(
-      expect.objectContaining({ type: '[Auth] Login' }),
+      expect.objectContaining({type: '[Auth] Login'}),
     );
   });
 

@@ -1,7 +1,7 @@
-import { Component, inject } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AsyncPipe, DatePipe } from '@angular/common';
-import { selectActiveChannel, selectMessageGroups, selectMessagesLoading } from '../../../store/selectors';
+import {Component, inject} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {AsyncPipe, DatePipe} from '@angular/common';
+import {selectActiveChannel, selectMessageGroups, selectMessagesLoading} from '../../../store/selectors';
 
 @Component({
   selector: 'app-message-list',

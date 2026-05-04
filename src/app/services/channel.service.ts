@@ -16,7 +16,7 @@ export class ChannelService {
     return this.httpClientService
       .get<{ user_id: string; channel_id: string }[]>(
         `${environment.apiUrl}/user_channels`,
-        { params: { user_id: userId } }
+        {params: {user_id: userId}}
       )
       .pipe(
         map(relations => relations.map(r => r.channel_id)),

@@ -1,4 +1,6 @@
-:host { display: block; }
+:host {
+  display: block;
+}
 
 .input-row {
   display: flex;
@@ -20,7 +22,9 @@
     background: var(--bg);
     transition: border-color 0.15s;
 
-    &:focus { border-color: var(--border-strong); }
+    &:focus {
+      border-color: var(--border-strong);
+    }
   }
 
   &__send {
@@ -34,7 +38,13 @@
     transition: background 0.15s;
     flex-shrink: 0;
 
-    &:hover:not(:disabled) { background: var(--yellow-dark); }
-    &:disabled { opacity: 0.4; cursor: not-allowed; }
+    &:hover:not(:disabled) {
+      background: var(--yellow-dark);
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
   }
 }

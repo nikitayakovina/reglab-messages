@@ -1,8 +1,8 @@
-import { createReducer, on } from '@ngrx/store';
+import {createReducer, on} from '@ngrx/store';
 import {IUser} from '../models/user';
 import {IMessage} from '../models/message';
 import {IChannel} from '../models/channel';
-import { AuthActions, ChannelActions, MessageActions, UserActions } from './actions';
+import {AuthActions, ChannelActions, MessageActions, UserActions} from './actions';
 
 export interface AuthState {
   user: IUser | null;
@@ -10,13 +10,13 @@ export interface AuthState {
   error: string | null;
 }
 
-const authInitial: AuthState = { user: null, loading: false, error: null };
+const authInitial: AuthState = {user: null, loading: false, error: null};
 
 export const authReducer = createReducer(
   authInitial,
-  on(AuthActions.login, state => ({ ...state, loading: true, error: null })),
-  on(AuthActions.loginSuccess, (state, { user }) => ({ ...state, user, loading: false, error: null })),
-  on(AuthActions.loginFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  on(AuthActions.login, state => ({...state, loading: true, error: null})),
+  on(AuthActions.loginSuccess, (state, {user}) => ({...state, user, loading: false, error: null})),
+  on(AuthActions.loginFailure, (state, {error}) => ({...state, loading: false, error})),
   on(AuthActions.logout, () => authInitial),
 );
 
@@ -27,20 +27,20 @@ export interface ChannelState {
   error: string | null;
 }
 
-const channelInitial: ChannelState = { channels: [], activeChannel: null, loading: false, error: null };
+const channelInitial: ChannelState = {channels: [], activeChannel: null, loading: false, error: null};
 
 export const channelReducer = createReducer(
   channelInitial,
-  on(ChannelActions.loadChannels, state => ({ ...state, loading: true, error: null })),
-  on(ChannelActions.loadChannelsSuccess, (state, { channels }) => ({
+  on(ChannelActions.loadChannels, state => ({...state, loading: true, error: null})),
+  on(ChannelActions.loadChannelsSuccess, (state, {channels}) => ({
     ...state,
     channels,
     activeChannel: channels[0] ?? null,
     loading: false,
   })),
-  on(ChannelActions.loadChannelsFailure, (state, { error }) => ({ ...state, loading: false, error })),
-  on(ChannelActions.selectChannel, (state, { channel }) => ({ ...state, activeChannel: channel })),
-  on(ChannelActions.addChannelSuccess, (state, { channel }) => ({
+  on(ChannelActions.loadChannelsFailure, (state, {error}) => ({...state, loading: false, error})),
+  on(ChannelActions.selectChannel, (state, {channel}) => ({...state, activeChannel: channel})),
+  on(ChannelActions.addChannelSuccess, (state, {channel}) => ({
     ...state,
     channels: [...state.channels, channel],
     activeChannel: channel,
@@ -64,14 +64,14 @@ const userInitial: UserState = {
 
 export const userReducer = createReducer(
   userInitial,
-  on(UserActions.loadAllUsers, state => ({ ...state, loading: true })),
-  on(UserActions.loadAllUsersSuccess, (state, { allUsers }) => ({ ...state, allUsers, loading: false })),
-  on(UserActions.loadAllUsersFailure, (state, { error }) => ({ ...state, loading: false, error })),
-  on(UserActions.loadChannelUsersSuccess, (state, { channelId, users }) => ({
+  on(UserActions.loadAllUsers, state => ({...state, loading: true})),
+  on(UserActions.loadAllUsersSuccess, (state, {allUsers}) => ({...state, allUsers, loading: false})),
+  on(UserActions.loadAllUsersFailure, (state, {error}) => ({...state, loading: false, error})),
+  on(UserActions.loadChannelUsersSuccess, (state, {channelId, users}) => ({
     ...state,
-    channelUsers: { ...state.channelUsers, [channelId]: users },
+    channelUsers: {...state.channelUsers, [channelId]: users},
   })),
-  on(UserActions.addUserSuccess, (state, { user, channel_id }) => ({
+  on(UserActions.addUserSuccess, (state, {user, channel_id}) => ({
     ...state,
     channelUsers: {
       ...state.channelUsers,
@@ -90,17 +90,17 @@ export interface MessageState {
   error: string | null;
 }
 
-const messageInitial: MessageState = { messages: [], loading: false, error: null };
+const messageInitial: MessageState = {messages: [], loading: false, error: null};
 
 export const messageReducer = createReducer(
   messageInitial,
-  on(MessageActions.loadMessages, state => ({ ...state, loading: true, error: null })),
-  on(MessageActions.loadMessagesSuccess, (state, { messages }) => ({ ...state, messages, loading: false })),
-  on(MessageActions.loadMessagesFailure, (state, { error }) => ({ ...state, loading: false, error })),
-  on(MessageActions.sendMessageSuccess, (state, { message }) => ({
+  on(MessageActions.loadMessages, state => ({...state, loading: true, error: null})),
+  on(MessageActions.loadMessagesSuccess, (state, {messages}) => ({...state, messages, loading: false})),
+  on(MessageActions.loadMessagesFailure, (state, {error}) => ({...state, loading: false, error})),
+  on(MessageActions.sendMessageSuccess, (state, {message}) => ({
     ...state,
     messages: [...state.messages, message],
   })),
-  on(ChannelActions.selectChannel, state => ({ ...state, messages: [] })),
+  on(ChannelActions.selectChannel, state => ({...state, messages: []})),
   on(AuthActions.logout, () => messageInitial),
 );

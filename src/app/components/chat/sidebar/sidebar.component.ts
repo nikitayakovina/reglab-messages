@@ -1,12 +1,14 @@
-import { Component, inject, signal } from '@angular/core';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { AsyncPipe } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { AuthActions, ChannelActions, UserActions } from '../../../store/actions';
+import {Component, inject, signal} from '@angular/core';
+import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import {AsyncPipe} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {AuthActions, ChannelActions, UserActions} from '../../../store/actions';
 import {
-  selectActiveChannel, selectActiveChannelUsers,
-  selectAllChannels, selectAllUsers,
+  selectActiveChannel,
+  selectActiveChannelUsers,
+  selectAllChannels,
+  selectAllUsers,
   selectCurrentUser,
 } from '../../../store/selectors';
 import {combineLatest, take} from 'rxjs';
@@ -20,21 +22,19 @@ import {IChannel} from '../../../models/channel';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  private store = inject(Store);
-  private router = inject(Router);
-
-  currentUser$ = this.store.select(selectCurrentUser);
-  channels$ = this.store.select(selectAllChannels);
-  activeChannel$ = this.store.select(selectActiveChannel);
-  otherUsers$ = this.store.select(selectActiveChannelUsers);
-
   showChannelModal = signal(false);
   showUserModal = signal(false);
   newChannelName = '';
   newUsername = '';
+  private store = inject(Store);
+  currentUser$ = this.store.select(selectCurrentUser);
+  channels$ = this.store.select(selectAllChannels);
+  activeChannel$ = this.store.select(selectActiveChannel);
+  otherUsers$ = this.store.select(selectActiveChannelUsers);
+  private router = inject(Router);
 
   selectChannel(channel: IChannel): void {
-    this.store.dispatch(ChannelActions.selectChannel({ channel }));
+    this.store.dispatch(ChannelActions.selectChannel({channel}));
   }
 
   submitChannel(): void {
@@ -44,7 +44,7 @@ export class SidebarComponent {
 
     this.store.select(selectCurrentUser).pipe(take(1)).subscribe(user => {
       if (user) {
-        this.store.dispatch(ChannelActions.addChannel({ name, userId: user.id }));
+        this.store.dispatch(ChannelActions.addChannel({name, userId: user.id}));
       }
     });
 

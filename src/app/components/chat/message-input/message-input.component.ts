@@ -1,9 +1,9 @@
-import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { Store } from '@ngrx/store';
-import { take } from 'rxjs';
-import { MessageActions } from '../../../store/actions';
-import { selectActiveChannel, selectCurrentUser } from '../../../store/selectors';
+import {Component, inject} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {Store} from '@ngrx/store';
+import {take} from 'rxjs';
+import {MessageActions} from '../../../store/actions';
+import {selectActiveChannel, selectCurrentUser} from '../../../store/selectors';
 
 @Component({
   selector: 'app-message-input',
@@ -13,8 +13,8 @@ import { selectActiveChannel, selectCurrentUser } from '../../../store/selectors
   styleUrls: ['./message-input.component.scss'],
 })
 export class MessageInputComponent {
-  private store = inject(Store);
   content = '';
+  private store = inject(Store);
 
   send(): void {
     const text = this.content.trim();

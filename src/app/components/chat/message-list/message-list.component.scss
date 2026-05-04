@@ -66,7 +66,9 @@
     margin-bottom: 0.35rem;
     color: var(--text-muted);
 
-    &--own { color: var(--info); }
+    &--own {
+      color: var(--info);
+    }
   }
 
   &__text {
@@ -85,5 +87,7 @@
 }
 
 @media (max-width: 1280px) {
-  .msg-group { max-width: 84%; }
+  .msg-group {
+    max-width: 84%;
+  }
 }

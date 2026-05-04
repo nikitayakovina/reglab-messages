@@ -1,50 +1,50 @@
 <div class="auth-wrap">
   <div class="auth-box">
     @if ((error$ | async) && (error$ | async) !== '') {
-      <div class="auth-error" role="alert">
-        {{ error$ | async }}
-      </div>
+    <div class="auth-error" role="alert">
+    {{ error$ | async }}
+    </div>
     }
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <div class="field" [class.field--error]="usernameCtrl.invalid && usernameCtrl.touched">
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <div [class.field--error]="usernameCtrl.invalid && usernameCtrl.touched" class="field">
         <label class="field__label" for="username">Login</label>
         <input
-          id="username"
-          type="text"
+          autocomplete="username"
           class="field__input"
           formControlName="username"
+          id="username"
           placeholder="your_username"
-          autocomplete="username"
+          type="text"
         />
         @if (usernameCtrl.invalid && usernameCtrl.touched) {
-          <span class="field__error">{{ getUsernameError() }}</span>
+        <span class="field__error">{{ getUsernameError() }}</span>
         }
       </div>
 
-      <div class="field" [class.field--error]="passwordCtrl.invalid && passwordCtrl.touched">
+      <div [class.field--error]="passwordCtrl.invalid && passwordCtrl.touched" class="field">
         <label class="field__label" for="password">Password</label>
         <input
-          id="password"
-          type="password"
+          autocomplete="current-password"
           class="field__input"
           formControlName="password"
+          id="password"
           placeholder="••••••••"
-          autocomplete="current-password"
+          type="password"
         />
         @if (passwordCtrl.invalid && passwordCtrl.touched) {
-          <span class="field__error">{{ getPasswordError() }}</span>
+        <span class="field__error">{{ getPasswordError() }}</span>
         }
       </div>
 
       <button
-        type="submit"
-        class="auth-btn"
         [disabled]="(loading$ | async)"
+        class="auth-btn"
+        type="submit"
       >
         @if (loading$ | async) {
-          Signing in
+        Signing in
         } @else {
-          SignIn
+        SignIn
         }
       </button>
     </form>

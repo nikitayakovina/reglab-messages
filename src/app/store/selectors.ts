@@ -1,6 +1,6 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { AuthState, ChannelState, MessageState, UserState } from './reducers';
-import { IMessageGroup } from '../models/message';
+import {createFeatureSelector, createSelector} from '@ngrx/store';
+import {AuthState, ChannelState, MessageState, UserState} from './reducers';
+import {IMessageGroup} from '../models/message';
 
 const selectAuth = createFeatureSelector<AuthState>('auth');
 const selectChannels = createFeatureSelector<ChannelState>('channels');

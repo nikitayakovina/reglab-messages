@@ -14,7 +14,7 @@ export class MessagesService {
   public getMessages(channelId: string): Observable<IMessage[]> {
     return this.httpClientService
       .get<IMessage[]>(`${environment.apiUrl}/messages`, {
-        params: { channel_id: channelId }
+        params: {channel_id: channelId}
       })
       .pipe(delay(API_DELAY));
   }

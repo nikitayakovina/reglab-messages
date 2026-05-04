@@ -33,7 +33,9 @@
   gap: 0.5rem;
   margin-bottom: 0.25rem;
 
-  &__icon { font-size: 1.4rem; }
+  &__icon {
+    font-size: 1.4rem;
+  }
 
   &__text {
     font-family: var(--font-mono);
@@ -86,10 +88,14 @@
     outline: none;
     transition: border-color 0.15s;
 
-    &:focus { border-color: var(--border-strong); }
+    &:focus {
+      border-color: var(--border-strong);
+    }
   }
 
-  &--error &__input { border-color: var(--offline); }
+  &--error &__input {
+    border-color: var(--offline);
+  }
 
   &__error {
     display: block;
@@ -114,8 +120,14 @@
   transition: background 0.15s;
   margin-top: 0.5rem;
 
-  &:hover:not(:disabled) { background: var(--yellow-dark); }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    background: var(--yellow-dark);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .auth-hint {
@@ -125,5 +137,7 @@
   text-align: center;
   line-height: 1.6;
 
-  strong { color: var(--text); }
+  strong {
+    color: var(--text);
+  }
 }

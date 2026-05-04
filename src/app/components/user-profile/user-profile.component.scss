@@ -33,7 +33,9 @@
   cursor: pointer;
   transition: border-color 0.15s;
 
-  &:hover { border-color: var(--border-strong); }
+  &:hover {
+    border-color: var(--border-strong);
+  }
 }
 
 .profile-body {
@@ -72,8 +74,15 @@
     font-size: 1rem;
     font-weight: 600;
 
-    &--mono { font-family: var(--font-mono); font-size: 0.8rem; }
-    &--muted { color: var(--text-muted); font-weight: 400; }
+    &--mono {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+    }
+
+    &--muted {
+      color: var(--text-muted);
+      font-weight: 400;
+    }
   }
 
   .field--spaced {
@@ -96,7 +105,10 @@
     height: 8px;
     border-radius: 50%;
     background: var(--offline);
-    &--on { background: var(--online); }
+
+    &--on {
+      background: var(--online);
+    }
   }
 }
 
@@ -112,5 +124,7 @@
   cursor: pointer;
   transition: background 0.15s;
 
-  &:hover { background: var(--yellow-dark); }
+  &:hover {
+    background: var(--yellow-dark);
+  }
 }

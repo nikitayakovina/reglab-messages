@@ -81,7 +81,10 @@
   transition: background 0.1s;
   margin-bottom: 2px;
 
-  &:hover { background: var(--bg); }
+  &:hover {
+    background: var(--bg);
+  }
+
   &--active {
     background: #f0ede4;
     font-weight: 600;
@@ -103,7 +106,9 @@
   margin: 0.5rem 0 1rem;
   transition: background 0.15s;
 
-  &:hover { background: var(--yellow-dark); }
+  &:hover {
+    background: var(--yellow-dark);
+  }
 }
 
 .sid-divider {
@@ -120,7 +125,9 @@
   border-radius: 2px;
   transition: background 0.1s;
 
-  &:hover { background: var(--bg); }
+  &:hover {
+    background: var(--bg);
+  }
 
   &__dot {
     width: 9px;
@@ -129,7 +136,9 @@
     flex-shrink: 0;
     background: var(--offline);
 
-    &--on { background: var(--online); }
+    &--on {
+      background: var(--online);
+    }
   }
 }
 
@@ -181,10 +190,15 @@
     outline: none;
     background: var(--bg);
 
-    &:focus { border-color: var(--border-strong); }
+    &:focus {
+      border-color: var(--border-strong);
+    }
   }
 
-  &__btns { display: flex; gap: 0.5rem; }
+  &__btns {
+    display: flex;
+    gap: 0.5rem;
+  }
 
   &__btn {
     flex: 1;
@@ -199,12 +213,18 @@
 
     &--primary {
       background: var(--yellow);
-      &:hover { background: var(--yellow-dark); }
+
+      &:hover {
+        background: var(--yellow-dark);
+      }
     }
 
     &--ghost {
       background: none;
-      &:hover { background: var(--bg); }
+
+      &:hover {
+        background: var(--bg);
+      }
     }
   }
 }

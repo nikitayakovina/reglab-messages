@@ -1,27 +1,27 @@
 <header class="chat-header">
   @if (activeChannel$ | async; as ch) {
-    <span class="chat-header__channel">#{{ ch.name }}</span>
+  <span class="chat-header__channel">#{{ ch.name }}</span>
   } @else {
-    <span class="chat-header__channel">Select a channel</span>
+  <span class="chat-header__channel">Select a channel</span>
   }
 </header>
 
 <div class="msg-scroll">
   @if (loading$ | async) {
-    <div class="msg-state">Loading messages...</div>
+  <div class="msg-state">Loading messages...</div>
   } @else if ((groups$ | async)?.length === 0) {
-    <div class="msg-state">No messages</div>
+  <div class="msg-state">No messages</div>
   } @else {
-    @for (group of (groups$ | async); track group.ts) {
-      <div class="msg-group" [class.msg-group--own]="group.isOwn">
-        <div class="msg-group__sender" [class.msg-group__sender--own]="group.isOwn">
-          {{ group.username }}
-        </div>
-        @for (line of group.lines; track $index) {
-          <p class="msg-group__text">{{ line }}</p>
-        }
-        <div class="msg-group__time">{{ formatTime(group.ts) }}</div>
-      </div>
+  @for (group of (groups$ | async); track group.ts) {
+  <div [class.msg-group--own]="group.isOwn" class="msg-group">
+    <div [class.msg-group__sender--own]="group.isOwn" class="msg-group__sender">
+      {{ group.username }}
+    </div>
+    @for (line of group.lines; track $index) {
+    <p class="msg-group__text">{{ line }}</p>
     }
+    <div class="msg-group__time">{{ formatTime(group.ts) }}</div>
+  </div>
+  }
   }
 </div>

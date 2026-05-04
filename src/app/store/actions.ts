@@ -1,4 +1,4 @@
-import { createActionGroup, emptyProps, props } from '@ngrx/store';
+import {createActionGroup, emptyProps, props} from '@ngrx/store';
 import {IUser} from '../models/user';
 import {IMessage} from '../models/message';
 import {IChannel} from '../models/channel';

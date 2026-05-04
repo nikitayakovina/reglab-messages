@@ -1,13 +1,13 @@
 <div class="profile-wrap">
   <header class="profile-header">
-    <button class="back-btn" (click)="goBack()">Back</button>
+    <button (click)="goBack()" class="back-btn">Back</button>
     <h1 class="profile-header__title">User Profile</h1>
   </header>
 
   @if (currentUser$ | async; as user) {
-    <div class="profile-body">
+  <div class="profile-body">
 
-      <div class="avatar">{{ getInitial(user.username) }}</div>
+    <div class="avatar">{{ getInitial(user.username) }}</div>
 
       <div class="field">
         <div class="field__label">Username</div>

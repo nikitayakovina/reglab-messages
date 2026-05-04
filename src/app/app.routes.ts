@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {authGuard, guestGuard} from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -20,5 +20,5 @@ export const routes: Routes = [
     loadComponent: () =>
       import('../app/components/user-profile/user-profile.component').then(m => m.UserProfileComponent),
   },
-  { path: '**', redirectTo: '' },
+  {path: '**', redirectTo: ''},
 ];
